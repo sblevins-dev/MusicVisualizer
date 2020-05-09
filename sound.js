@@ -64,8 +64,8 @@ window.onload = function () {
       let center_x = canvas.width / 2;
       let center_y = canvas.height / 2;
       let radius;
-      if (canvas.width < 700 || canvas.height < 400) {
-        radius = 50;
+      if (canvas.width < 700 || canvas.height < 500) {
+        radius = 40;
       } else {
         radius = 150;
       }
@@ -90,7 +90,11 @@ window.onload = function () {
         //barHeight = dataArray[i] * 2.5;
 
         // let rads = (Math.PI * 2) / bars;
-        barHeight = dataArray[i] * 1;
+        if (canvas.width < 700 || canvas.height < 400) {
+          barHeight = dataArray[i] * 0.5;
+        } else {
+          barHeight = dataArray[i] * 0.9;
+        }
 
         //trying to figure out base
         if (dataArray[i] > 300) {
@@ -113,42 +117,34 @@ window.onload = function () {
           r = 204;
           g = 255;
           b = 50;
-          barHeight = dataArray[i] * 0.9;
         } else if (dataArray[i] > 170) {
           r = 0;
           g = 50;
           b = 255;
-          barHeight = dataArray[i] * 0.9;
         } else if (dataArray[i] > 150) {
           r = 0;
           g = 100;
           b = 255;
-          barHeight = dataArray[i] * 0.9;
         } else if (dataArray[i] > 130) {
           r = 0;
           g = 200;
           b = 255;
-          barHeight = dataArray[i] * 0.8;
         } else if (dataArray[i] > 110) {
           r = 0;
           g = 255;
           b = 200;
-          barHeight = dataArray[i] * 0.8;
         } else if (dataArray[i] > 90) {
           r = 0;
           g = 255;
           b = 100;
-          barHeight = dataArray[i] * 0.8;
         } else if (dataArray[i] > 75) {
           r = 0;
           g = 255;
           b = 50;
-          barHeight = dataArray[i] * 0.8;
         } else if (dataArray[i] > 50) {
           r = 0;
           g = 255;
           b = 0;
-          barHeight = dataArray[i] * 0.8;
         } else if (dataArray[i] > 25) {
           r = 0;
           g = 100;
