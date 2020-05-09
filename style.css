@@ -1,9 +1,18 @@
 html {
   min-height: 100%;
   margin: 0;
+  overflow: hidden;
+  background: black;
 }
 body {
-  background: linear-gradient(rgba(0, 0, 1, 1), rgba(0, 0, 51, 1));
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  animation: col linear 25s infinite;
+  /* background: white;
+  animation: col 4s ease-in-out infinite; */
+  /* transition: ease-in-out; */
+  /* background: linear-gradient(rgba(0, 0, 1, 1), rgba(0, 0, 51, 1)); */
 }
 
 #file-input {
@@ -44,6 +53,81 @@ button:hover {
   top: 0;
   width: 100%;
   height: 100%;
+  animation: rotation 15s infinite linear;
+  transition-property: transform;
+  animation: rotation 20s linear infinite;
+}
+
+#shade {
+  position: absolute;
+  left: 0;
+  width: 5px;
+  background: black;
+  animation: lines linear 5s infinite;
+}
+
+#shadow {
+  position: absolute;
+  top: calc(50% - 270px);
+  left: calc(50% - 270px);
+  height: 540px;
+  width: 540px;
+  margin: auto;
+  border-radius: 45%;
+  background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  animation: accent 5s ease-in-out infinite;
+}
+
+#shadow2 {
+  position: absolute;
+  top: calc(50% - 300px);
+  left: calc(50% - 300px);
+  height: 600px;
+  width: 600px;
+  margin: auto;
+  border-radius: 45%;
+  background: radial-gradient(
+    circle farthest-side,
+    rgba(255, 255, 255, 0),
+    rgba(99, 4, 4, 0.075)
+  );
+  animation: accent 10s ease-in-out infinite;
+}
+
+#shadow5 {
+  position: absolute;
+  top: calc(50% - 400px);
+  left: calc(50% - 400px);
+  height: 800px;
+  width: 800px;
+  margin: auto;
+  border-radius: 45%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.11),
+    rgba(255, 166, 0, 0.692)
+  );
+  opacity: 0.1;
+  background: radial-gradient(circle, black rgb(253, 187, 4));
+  animation: shapes2 10s ease-in-out infinite;
+}
+
+#shadow6 {
+  position: absolute;
+  top: calc(50% - 400px);
+  left: calc(50% - 400px);
+  height: 800px;
+  width: 800px;
+  margin: auto;
+  border-radius: 45%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.11),
+    rgba(228, 253, 3, 0.692)
+  );
+  opacity: 0.1;
+  background: radial-gradient(circle, black rgb(253, 187, 4));
+  animation: shapes2 5s ease-in-out infinite;
 }
 
 audio {
@@ -78,5 +162,75 @@ audio {
   #canvas {
     height: 100%;
     width: 100%;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes col {
+  0% {
+    background: rgba(62, 252, 4, 0.705);
+  }
+  20% {
+    background: rgba(11, 11, 235, 0.37);
+  }
+  40% {
+    background: rgba(255, 3, 3, 0.514);
+  }
+  60% {
+    background: rgba(193, 245, 4, 0.664);
+  }
+  80% {
+    background: rgba(255, 255, 255, 0.342);
+  }
+  100% {
+    background: rgba(60, 255, 1, 0.61);
+  }
+}
+
+@keyframes shapes2 {
+  0% {
+    transform: rotate(359deg) scale(1);
+  }
+  50% {
+    transform: scale(12) rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes accent {
+  0% {
+    background: radial-gradient(circle, black rgba(8, 4, 253, 0.034));
+    transform: rotate(0deg) scale(2);
+  }
+  50% {
+    background: radial-gradient(circle, green rgba(54, 253, 4, 0.034));
+    transform: rotate(180deg) scale(0.5);
+  }
+  100% {
+    background: radial-gradient(circle, black rgba(8, 4, 253, 0.034));
+    transform: rotate(359deg) scale(2);
+  }
+}
+
+@keyframes lines {
+  0% {
+    right: 0%;
+  }
+  50% {
+    right: 50%;
+  }
+  100% {
+    right: 80%;
   }
 }
