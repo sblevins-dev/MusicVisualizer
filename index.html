@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+
+    <title>Music Visualizer</title>
+  </head>
+  <body>
+    <input type="file" id="file-input" accept="audio/*,video/*,image/*" />
+    <canvas id="canvas"></canvas>
+    <h3 id="name"></h3>
+    <audio id="audio"></audio>
+    <div id="buttons">
+      <button onclick="document.getElementById('audio').play()">Play</button>
+      <button onclick="document.getElementById('audio').pause()">Pause</button>
+      <button onclick="document.getElementById('audio').volume += 0.1">
+        Vol +
+      </button>
+      <button onclick="document.getElementById('audio').volume -= 0.1">
+        Vol -
+      </button>
+    </div>
+
+    <div id="background"></div>
+
+    <script src="./sound.js"></script>
+  </body>
+</html>

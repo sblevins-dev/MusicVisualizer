@@ -1,0 +1,82 @@
+html {
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  background: linear-gradient(rgba(0, 0, 1, 1), rgba(0, 0, 51, 1));
+}
+
+#file-input {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+}
+
+input {
+  background: transparent;
+  background-color: transparent;
+  color: white;
+}
+
+#buttons {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 5;
+}
+
+button {
+  background: transparent;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  font-size: 18px;
+}
+
+button:hover {
+  background: transparent;
+  color: greenyellow;
+}
+
+#canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+audio {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  width: calc(100% - 25px);
+  z-index: 3;
+}
+
+#name {
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+  z-index: 3;
+  color: #eeeeee;
+  font-family: monospace;
+}
+
+#background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 100% 7px;
+  z-index: 2;
+  opacity: 0.3;
+}
+
+@media (min-width: 700px) {
+  #canvas {
+    height: 100%;
+    width: 100%;
+  }
+}
