@@ -183,12 +183,9 @@ audio {
   }
 }
 
-@media (max-height: 374px) {
-  #name {
-    bottom: 40px;
-  }
+#name:fullscreen {
+  bottom: 60px;
 }
-
 /* @media (max-width: 900px) {
   #fullScreen {
     display: none;
