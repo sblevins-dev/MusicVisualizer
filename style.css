@@ -6,13 +6,28 @@ html {
 }
 body {
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
   margin: 0;
+  background-image: url(./images/stars.jpg);
+  height: 100%;
+  background-position: 47% center;
+  background-size: cover;
   animation: col linear 25s infinite;
   /* background: white;
   animation: col 4s ease-in-out infinite; */
   /* transition: ease-in-out; */
   /* background: linear-gradient(rgba(0, 0, 1, 1), rgba(0, 0, 51, 1)); */
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: radial-gradient(black 0%, blue 50%, red 100%);
+  height: 100%;
+  width: 100%;
+  mix-blend-mode: difference;
 }
 
 ::selection {
@@ -59,11 +74,12 @@ button:hover {
 
 #canvas {
   position: fixed;
-  left: 0;
+  left: -3.5%;
   top: 0;
   width: 100%;
   height: 100%;
   animation: rotation 20s linear infinite;
+  z-index: 1;
 }
 
 #shadow {
@@ -133,7 +149,7 @@ audio {
     transform: rotate(0deg) scale(0.7);
   }
   50% {
-    transform: rotate(180deg) scale(1.3);
+    transform: rotate(180deg) scale(1);
   }
   100% {
     transform: rotate(359deg) scale(0.7);
@@ -145,14 +161,14 @@ audio {
     transform: rotate(359deg) scale(0.7);
   }
   50% {
-    transform: rotate(180deg) scale(1.3);
+    transform: rotate(180deg) scale(1);
   }
   100% {
     transform: rotate(0deg) scale(0.7);
   }
 }
 
-@keyframes col {
+/* @keyframes col {
   0% {
     background: rgba(62, 252, 4, 0.705);
   }
@@ -171,7 +187,7 @@ audio {
   100% {
     background: rgba(60, 255, 1, 0.61);
   }
-}
+} */
 
 @media (max-width: 700px) {
   #shadow {

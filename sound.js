@@ -93,7 +93,7 @@ window.onload = function () {
 
       let r, g, b;
       let bars = 360;
-      let barWidth = 2;
+      let barWidth = 3;
 
       // if
       //angle -= 0.01;
@@ -131,9 +131,9 @@ window.onload = function () {
 
         // let rads = (Math.PI * 2) / bars;
         if (canvas.width < 700 || canvas.height < 400) {
-          barHeight = dataArray[i] * 0.5;
+          barHeight = dataArray[i] * 0.3;
         } else {
-          barHeight = dataArray[i] * 0.9;
+          barHeight = dataArray[i] * 0.8;
         }
 
         //trying to figure out base
