@@ -10,9 +10,8 @@ body {
   margin: 0;
   background-image: url(./images/stars.jpg);
   height: 100%;
-  background-position: 47% center;
+  background-position: center;
   background-size: cover;
-  animation: col linear 25s infinite;
   /* background: white;
   animation: col 4s ease-in-out infinite; */
   /* transition: ease-in-out; */
@@ -24,10 +23,10 @@ body::after {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: radial-gradient(black 0%, blue 50%, red 100%);
+  background:black;
   height: 100%;
   width: 100%;
-  mix-blend-mode: difference;
+  opacity: 0.5;
 }
 
 ::selection {
@@ -65,11 +64,12 @@ button {
   color: whitesmoke;
   border: 1px solid whitesmoke;
   font-size: 18px;
+  transition: all 0.4s ease-in-out;
 }
 
 button:hover {
-  background: transparent;
-  color: greenyellow;
+  background: white;
+  color: blue;
 }
 
 #canvas {
