@@ -49,17 +49,43 @@ const context = new AudioContext() || context.AudioContext;
 let src = context.createMediaElementSource(audio);
 const analyser = context.createAnalyser();
 
-function visualize(file, flag) {
+let musicSource = ["./music/onYourMind.mp3", "./music/saveYourTears.mp3", "./music/desire.mp3"];
+
+let index = 1;
+let next = document.getElementById('next');
+next.addEventListener('click', () => {
+      let flag = null;
+      visualize(musicSource, flag, index);
+      if (index == 2) {
+        index = 0;
+      } else {
+        index++;
+      }
+      
+})
+
+  function playSongs(file, c) {
+    audio.src = file[c];
+    name = "On Your Mind by Kaskade";
+
+    
+  }
+function visualize(file, flag, index) {
   let name;
+  let songNames = ["On Your Mind", "Save Your Tears", "Desire"];
   let files;
   if (flag == "fileChoice") {
     files = file.files;
     audio.src = URL.createObjectURL(files[0]);
     name = files[0].name;
   } else {
-    audio.src = "./music/onYourMind.mp3";
-    name = "On Your Mind by Kaskade";
+    playSongs(file, index);
+    name = songNames[index];
   }
+
+  
+
+  
   h3.innerText = `${name}`;
 
   //possibly for bass
@@ -213,8 +239,8 @@ file.onchange = () => {
 };
 
 demo.onclick = () => {
-  let src = "./music/onYourMind.mp3";
+  // let src = ["./music/onYourMind.mp3", "./music/saveYourTears.mp3", "./music/desire.mp3"];
   let flag2 = "demo";
   context.resume();
-  visualize(src, flag2);
+  visualize(musicSource, flag2, 0);
 };
