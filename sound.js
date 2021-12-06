@@ -92,7 +92,7 @@ function visualize(file, flag) {
 
     let r, g, b;
     let bars = 360;
-    let barWidth = 3;
+    let barWidth = 5;
 
     let center_x = canvas.width / 2;
     let center_y = canvas.height / 2;
@@ -192,6 +192,7 @@ function visualize(file, flag) {
         ctx.strokeStyle = lineColor;
         ctx.lineWidth = width;
         ctx.beginPath();
+        ctx.lineCap = "round";
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
         ctx.stroke();
