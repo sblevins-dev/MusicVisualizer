@@ -49,7 +49,7 @@ const context = new AudioContext() || context.AudioContext;
 let src = context.createMediaElementSource(audio);
 const analyser = context.createAnalyser();
 
-let musicSource = ["./music/onYourMind.mp3", "./music/saveYourTears.mp3", "./music/desire.mp3"];
+let musicSource = ["./music/blueMonday.mp3", "./music/onYourMind.mp3", "./music/saveYourTears.mp3", "./music/desire.mp3"];
 
 let index = 1;
 let next = document.getElementById('next');
@@ -72,7 +72,7 @@ next.addEventListener('click', () => {
   }
 function visualize(file, flag, index) {
   let name;
-  let songNames = ["On Your Mind", "Save Your Tears", "Desire"];
+  let songNames = ["Blue Monday", "On Your Mind", "Save Your Tears", "Desire"];
   let files;
   if (flag == "fileChoice") {
     files = file.files;
