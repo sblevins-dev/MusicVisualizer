@@ -56,7 +56,7 @@ let next = document.getElementById('next');
 next.addEventListener('click', () => {
       let flag = null;
       visualize(musicSource, flag, index);
-      if (index == 2) {
+      if (index == 3) {
         index = 0;
       } else {
         index++;
