@@ -1,4 +1,4 @@
-window.onload = () => {
+
   const file = document.getElementById("file-input");
   const canvas = document.getElementById("canvas");
   const h3 = document.getElementById("name");
@@ -48,7 +48,7 @@ window.onload = () => {
     .getElementById("exitFullScreen")
     .addEventListener("click", closeFullscreen);
 
-  const context = new AudioContext() || context.AudioContext;
+  const context = new AudioContext() //|| context.AudioContext;
   let src = context.createMediaElementSource(audio);
   const analyser = context.createAnalyser();
 
@@ -251,4 +251,3 @@ window.onload = () => {
     context.resume();
     visualize(musicSource, flag2, 0);
   };
-};
