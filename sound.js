@@ -9,42 +9,6 @@ var elem = document.documentElement;
 // Create context
 const ctx = canvas.getContext("2d");
 
-/* View in fullscreen */
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) {
-    /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) {
-    /* Chrome, Safari and Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) {
-    /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-}
-
-/* Close fullscreen */
-function closeFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) {
-    /* Firefox */
-    document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) {
-    /* Chrome, Safari and Opera */
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) {
-    /* IE/Edge */
-    document.msExitFullscreen();
-  }
-}
-document.getElementById("fullScreen").addEventListener("click", openFullscreen);
-document
-  .getElementById("exitFullScreen")
-  .addEventListener("click", closeFullscreen);
-
 const context = new AudioContext(); //|| context.AudioContext;
 let src = context.createMediaElementSource(audio);
 const analyser = context.createAnalyser();
@@ -59,8 +23,7 @@ let musicSource = [
 let index = 1;
 let next = document.getElementById("next");
 next.addEventListener("click", () => {
-  let flag = null;
-  visualize(musicSource, flag, index);
+  visualize(musicSource, index);
   if (index == 3) {
     index = 0;
   } else {
@@ -71,18 +34,13 @@ next.addEventListener("click", () => {
 function playSongs(file, c) {
   audio.src = file[c];
 }
-function visualize(file, flag, index) {
+
+function visualize(file, index) {
   let name;
   let songNames = ["Blue Monday", "On Your Mind", "Save Your Tears", "Desire"];
-  let files;
-  if (flag == "fileChoice") {
-    files = file.files;
-    audio.src = URL.createObjectURL(files[0]);
-    name = files[0].name;
-  } else {
-    playSongs(file, index);
-    name = songNames[index];
-  }
+
+  playSongs(file, index);
+  name = songNames[index];
 
   h3.innerText = `${name}`;
 
@@ -225,14 +183,43 @@ function visualize(file, flag, index) {
   requestAnimationFrame(renderFrame);
 }
 
-file.onchange = () => {
-  let flag1 = "fileChoice";
+demo.onclick = () => {
   context.resume();
-  visualize(file, flag1);
+  visualize(musicSource, 0);
 };
 
-demo.onclick = () => {
-  let flag2 = "demo";
-  context.resume();
-  visualize(musicSource, flag2, 0);
-};
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) {
+    /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) {
+    /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
+document.getElementById("fullScreen").addEventListener("click", openFullscreen);
+document
+  .getElementById("exitFullScreen")
+  .addEventListener("click", closeFullscreen);
