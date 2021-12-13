@@ -9,7 +9,7 @@ var elem = document.documentElement;
 // Create context
 const ctx = canvas.getContext("2d");
 
-const context = new AudioContext(); //|| context.AudioContext;
+const context = new AudioContext() || context.AudioContext;
 let src = context.createMediaElementSource(audio);
 const analyser = context.createAnalyser();
 
@@ -63,6 +63,8 @@ function visualize(file, index) {
   let y;
 
   function renderFrame() {
+    context.resume();
+    audio.play();
     requestAnimationFrame(renderFrame);
 
     analyser.getByteFrequencyData(dataArray);
@@ -178,13 +180,12 @@ function visualize(file, index) {
     }
   }
 
-  audio.play();
+  // audio.play();
 
   requestAnimationFrame(renderFrame);
 }
 
 demo.onclick = () => {
-  context.resume();
   visualize(musicSource, 0);
 };
 
