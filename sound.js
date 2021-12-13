@@ -222,7 +222,7 @@ function visualize(file, flag, index) {
 
   audio.play();
 
-  requestAnimationFrame(renderFrame());
+  requestAnimationFrame(renderFrame);
 }
 
 file.onchange = () => {
