@@ -11,13 +11,13 @@
 
     <canvas id="canvas"></canvas>
 
-    <button class="demo" onclick="document.getElementById('audio').play()">Click Here To Start</button>
+    <button class="demo">Click Here To Start</button>
 
     <h3 id="name"></h3>
     <audio id="audio"></audio>
     <div id="buttons">
-      <button onclick="document.getElementById('audio').play()">Play</button>
-      <button onclick="document.getElementById('audio').pause()">Pause</button>
+      <button id="play" onclick="document.getElementById('audio').play()">Play</button>
+      <button id="pause" onclick="document.getElementById('audio').pause()">Pause</button>
       <button onclick="document.getElementById('audio').volume += 0.1">
         Vol +
       </button>

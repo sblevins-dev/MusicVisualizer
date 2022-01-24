@@ -1,52 +1,60 @@
+window.onload = () => {
 const file = document.getElementById("file-input");
 const canvas = document.getElementById("canvas");
 const h3 = document.getElementById("name");
 const audio = document.getElementById("audio");
 const demo = document.querySelector(".demo");
+const pause = document.getElementById('pause');
+const play = document.getElementById('play');
 /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
 
 // Create context
 const ctx = canvas.getContext("2d");
 
-const context = new AudioContext() || context.AudioContext;
+const context = new AudioContext()  || context.AudioContext|| webkit.AudioContext();
 let src = context.createMediaElementSource(audio);
 const analyser = context.createAnalyser();
 
-let musicSource = [
-  "./music/blueMonday.mp3",
-  "./music/onYourMind.mp3",
-  "./music/saveYourTears.mp3",
-  "./music/desire.mp3",
-];
 
-let index = 1;
+
+let index = 0;
 let next = document.getElementById("next");
 next.addEventListener("click", () => {
-  visualize(musicSource, index);
+  console.log('next clicked')
   if (index == 3) {
     index = 0;
   } else {
     index++;
   }
+  console.log(index)
+  visualize(index);
 });
 
-function playSongs(file, c) {
-  audio.src = file[c];
-}
 
-function visualize(file, index) {
+demo.onclick = () => {
+  console.log('demo clicked')
+  visualize(0);
+};
+
+function visualize(index) {
+  console.log('in visualize')
   let name;
+  let musicSource = [
+    "./music/blueMonday.mp3",
+    "./music/onYourMind.mp3",
+    "./music/saveYourTears.mp3",
+    "./music/desire.mp3",
+  ];
   let songNames = ["Blue Monday", "On Your Mind", "Save Your Tears", "Desire"];
 
-  playSongs(file, index);
-  name = songNames[index];
+  // playSongs(file, index);
+  // audio.src = musicSource[index];
 
+  name = songNames[index];
+  audio.src = musicSource[index]
   h3.innerText = `${name}`;
 
-  //possibly for bass
-  const bassFilter = context.createBiquadFilter();
-  bassFilter.type = "lowshelf";
 
   src.connect(analyser);
   analyser.connect(context.destination);
@@ -64,7 +72,7 @@ function visualize(file, index) {
 
   function renderFrame() {
     context.resume();
-    audio.play();
+    // audio.play();
     requestAnimationFrame(renderFrame);
 
     analyser.getByteFrequencyData(dataArray);
@@ -180,14 +188,12 @@ function visualize(file, index) {
     }
   }
 
-  // audio.play();
+  audio.play();
 
-  requestAnimationFrame(renderFrame);
+  renderFrame();
 }
 
-demo.onclick = () => {
-  visualize(musicSource, 0);
-};
+
 
 /* View in fullscreen */
 function openFullscreen() {
@@ -224,3 +230,5 @@ document.getElementById("fullScreen").addEventListener("click", openFullscreen);
 document
   .getElementById("exitFullScreen")
   .addEventListener("click", closeFullscreen);
+
+}
