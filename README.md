@@ -1,7 +1,7 @@
 ## Music Visualizer
 
 ### Description
-The Music Visualization Web Page is a web application that visualizes the frequencies of pre-loaded songs in real-time. Users can select songs from a predefined list and see visual representations of the music's frequencies.
+The Music Visualizer is a web application that visualizes the frequencies of pre-loaded songs in real-time. Users can select songs from a predefined list and see visual representations of the music's frequencies.
 
 ### Features
 - Pre-loaded Songs: Includes a selection of songs that users can choose from.
