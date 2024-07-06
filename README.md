@@ -14,8 +14,7 @@ The Music Visualization Web Page is a web application that visualizes the freque
   - JavaScript
 
 ### Installation and Setup
-- Clone the repository: git clone https://github.com/your/repository.git
-- Navigate to the project directory: cd music-visualization-web-page
+- Clone the repository: git clone https://github.com/sblevins-dev/MusicVisualizer.git
 - Open index.html in your web browser to view the web page.
   
 ### Usage
